@@ -19,11 +19,6 @@ const ROUTES: Route = {
       name: 'Dashboard',
       icon: <DashboardFilled />,
     },
-    {
-      path: '/staffs',
-      name: 'Staff',
-      icon: <UserOutlined />,
-    },
   ],
 };
 

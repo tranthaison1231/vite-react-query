@@ -3,6 +3,7 @@ import { ConfigProvider } from 'antd';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { I18nextProvider } from 'react-i18next';
+import enUS from 'antd/lib/locale/en_US';
 import App from './App';
 import './configs/antd';
 import './configs/aws-cognito';
@@ -21,7 +22,7 @@ ReactDOM.render(
         <ResetCSS />
         <GlobalStyle />
         <ReactQueryProvider>
-          <ConfigProvider form={formConfig} componentSize="large">
+          <ConfigProvider form={formConfig} componentSize="large" locale={enUS}>
             <App />
           </ConfigProvider>
         </ReactQueryProvider>

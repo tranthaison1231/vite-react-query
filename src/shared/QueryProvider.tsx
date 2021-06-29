@@ -1,21 +1,17 @@
-import { useRef } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-function ReactQueryProvider({ children }: { children: React.ReactNode }) {
-  const queryClientRef = useRef<QueryClient>();
-  if (!queryClientRef.current) {
-    queryClientRef.current = new QueryClient({
-      defaultOptions: {
-        queries: {
-          retry: false,
-        },
-      },
-    });
-  }
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
+function ReactQueryProvider({ children }: { children: React.ReactNode }) {
   return (
-    <QueryClientProvider client={queryClientRef.current}>
+    <QueryClientProvider client={queryClient}>
       {children}
       {!import.meta.env.VITE_NODE_ENV && <ReactQueryDevtools />}
     </QueryClientProvider>
